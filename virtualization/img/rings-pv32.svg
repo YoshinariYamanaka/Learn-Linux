@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="460" viewBox="-10 -10 420 460" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle">
+  <rect x="-10" y="-10" width="420" height="460" fill="#ffffff"/>
+  <circle cx="200" cy="200" r="190" fill="#dbeafe" stroke="#334155"/>
+  <circle cx="200" cy="200" r="140" fill="#f1f5f9" stroke="#334155"/>
+  <circle cx="200" cy="200" r="95" fill="#fed7aa" stroke="#334155"/>
+  <circle cx="200" cy="200" r="50" fill="#fecaca" stroke="#334155"/>
+  <text x="200" y="35" font-weight="bold">ring 3</text>
+  <text x="200" y="51">guest applications</text>
+  <text x="200" y="80" font-weight="bold" fill="#64748b">ring 2</text>
+  <text x="200" y="95" fill="#64748b">unused</text>
+  <text x="200" y="125" font-weight="bold">ring 1</text>
+  <text x="200" y="140">guest kernel</text>
+  <text x="200" y="196" font-weight="bold">ring 0</text>
+  <text x="200" y="212">Xen</text>
+  <text x="200" y="420" font-size="15" font-weight="bold">32-bit Xen PV</text>
+  <text x="200" y="436" font-size="12" fill="#475569">guest kernel pushed out of ring 0 into ring 1</text>
+</svg>

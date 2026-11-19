@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="470" viewBox="-20 0 880 470" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+  </defs>
+  <rect x="-20" width="880" height="470" fill="#ffffff"/>
+  <!-- VMX non-root (guest) -->
+  <circle cx="200" cy="220" r="190" fill="#dbeafe" stroke="#334155"/>
+  <circle cx="200" cy="220" r="140" fill="#f1f5f9" stroke="#334155"/>
+  <circle cx="200" cy="220" r="95" fill="#f1f5f9" stroke="#334155"/>
+  <circle cx="200" cy="220" r="50" fill="#fed7aa" stroke="#334155"/>
+  <text x="200" y="55" font-weight="bold">ring 3</text>
+  <text x="200" y="71">guest applications</text>
+  <text x="200" y="100" font-weight="bold" fill="#64748b">ring 2</text>
+  <text x="200" y="115" fill="#64748b">unused</text>
+  <text x="200" y="145" font-weight="bold" fill="#64748b">ring 1</text>
+  <text x="200" y="160" fill="#64748b">unused</text>
+  <text x="200" y="216" font-weight="bold">ring 0</text>
+  <text x="200" y="232">guest kernel</text>
+  <text x="200" y="20" font-size="15" font-weight="bold">VMX non-root mode (guest)</text>
+  <!-- VMX root (hypervisor) -->
+  <circle cx="640" cy="220" r="190" fill="#f1f5f9" stroke="#334155"/>
+  <circle cx="640" cy="220" r="140" fill="#f1f5f9" stroke="#334155"/>
+  <circle cx="640" cy="220" r="95" fill="#f1f5f9" stroke="#334155"/>
+  <circle cx="640" cy="220" r="50" fill="#fecaca" stroke="#334155"/>
+  <text x="640" y="55" font-weight="bold" fill="#64748b">ring 3</text>
+  <text x="640" y="71" fill="#64748b">(host user space, if any)</text>
+  <text x="640" y="100" font-weight="bold" fill="#64748b">ring 2</text>
+  <text x="640" y="115" fill="#64748b">unused</text>
+  <text x="640" y="145" font-weight="bold" fill="#64748b">ring 1</text>
+  <text x="640" y="160" fill="#64748b">unused</text>
+  <text x="640" y="216" font-weight="bold">ring 0</text>
+  <text x="640" y="232">hypervisor</text>
+  <text x="640" y="20" font-size="15" font-weight="bold">VMX root mode (hypervisor)</text>
+  <!-- transitions -->
+  <line x1="396" y1="190" x2="444" y2="190" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="420" y="180" font-size="12">VM exit</text>
+  <line x1="444" y1="250" x2="396" y2="250" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="420" y="270" font-size="12">VM entry</text>
+  <text x="420" y="440" font-size="12" fill="#475569">Each mode has its own full set of rings, so the guest kernel keeps ring 0. Root mode is nicknamed "ring -1".</text>
+</svg>

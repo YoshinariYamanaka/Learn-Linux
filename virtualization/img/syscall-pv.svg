@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" font-family="Helvetica, Arial, sans-serif" font-size="13">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+  </defs>
+  <rect width="920" height="420" fill="#ffffff"/>
+  <!-- ===== 64-bit PV ===== -->
+  <text x="290" y="32" font-size="15" font-weight="bold" text-anchor="middle">64-bit PV</text>
+  <rect x="20" y="50" width="540" height="120" fill="#dbeafe" stroke="#334155"/>
+  <text x="30" y="68" fill="#334155">Guest: application and kernel both in ring 3</text>
+  <rect x="60" y="80" width="160" height="56" fill="#ffffff" stroke="#334155"/>
+  <text x="140" y="113" text-anchor="middle">application</text>
+  <rect x="300" y="80" width="200" height="56" fill="#fed7aa" stroke="#334155"/>
+  <text x="400" y="113" text-anchor="middle">guest kernel</text>
+  <rect x="20" y="220" width="540" height="70" fill="#fecaca" stroke="#334155"/>
+  <text x="30" y="238" fill="#334155">Hypervisor: ring 0</text>
+  <text x="290" y="268" text-anchor="middle" font-weight="bold">Xen</text>
+  <rect x="20" y="310" width="540" height="50" fill="#e2e8f0" stroke="#334155"/>
+  <text x="290" y="340" text-anchor="middle">Hardware: the CPU sends every system call to ring 0</text>
+  <!-- ① application -> Xen -->
+  <line x1="90" y1="136" x2="90" y2="218" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+  <text x="84" y="190" text-anchor="end" font-size="12">① syscall</text>
+  <!-- ④ Xen -> application -->
+  <line x1="190" y1="220" x2="190" y2="138" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+  <text x="196" y="190" font-size="12">④ back to app</text>
+  <text x="196" y="205" font-size="12" fill="#b91c1c">TLB flush</text>
+  <!-- ② Xen -> guest kernel -->
+  <line x1="330" y1="220" x2="330" y2="138" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+  <text x="336" y="190" font-size="12">② to kernel</text>
+  <text x="336" y="205" font-size="12" fill="#b91c1c">TLB flush</text>
+  <!-- ③ guest kernel -> Xen -->
+  <line x1="450" y1="136" x2="450" y2="218" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+  <text x="456" y="190" font-size="12">③ return</text>
+  <text x="456" y="205" font-size="12">(hypercall)</text>
+  <!-- ===== 32-bit PV ===== -->
+  <text x="750" y="32" font-size="15" font-weight="bold" text-anchor="middle">32-bit PV</text>
+  <rect x="600" y="50" width="300" height="120" fill="#dbeafe" stroke="#334155"/>
+  <text x="610" y="68" fill="#334155">Guest: app ring 3, kernel ring 1</text>
+  <rect x="612" y="80" width="110" height="56" fill="#ffffff" stroke="#334155"/>
+  <text x="667" y="113" text-anchor="middle">application</text>
+  <rect x="778" y="80" width="110" height="56" fill="#fed7aa" stroke="#334155"/>
+  <text x="833" y="113" text-anchor="middle">guest kernel</text>
+  <line x1="722" y1="98" x2="776" y2="98" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+  <text x="749" y="92" text-anchor="middle" font-size="12">①</text>
+  <line x1="778" y1="120" x2="724" y2="120" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+  <text x="749" y="134" text-anchor="middle" font-size="12">②</text>
+  <text x="750" y="158" text-anchor="middle" font-size="12">① int 0x80, routed to ring 1   ② return</text>
+  <rect x="600" y="220" width="300" height="70" fill="#f1f5f9" stroke="#334155"/>
+  <text x="610" y="238" fill="#334155">Hypervisor: ring 0</text>
+  <text x="750" y="268" text-anchor="middle" fill="#64748b">Xen (not involved)</text>
+  <rect x="600" y="310" width="300" height="50" fill="#e2e8f0" stroke="#334155"/>
+  <text x="750" y="340" text-anchor="middle">Hardware</text>
+  <text x="460" y="400" text-anchor="middle" font-size="13" fill="#475569">64-bit: four hops through Xen and two TLB flushes per system call. 32-bit: one hop, no flush.</text>
+</svg>
